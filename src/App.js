@@ -25,8 +25,8 @@ import Bicycles from './containers/Bicycles';
 
 import AllRequests from './containers/Requests';
 import MyBicycles from './containers/MyBicycles';
-import AllReturnRequests from './containers/ReturnRequests'
-
+import AllReturnRequests from './containers/ReturnRequests';
+import UsersList from './containers/UsersList';
 
 function App() {
 
@@ -74,6 +74,7 @@ function App() {
           <Route path='/myBicycles' element={<MyBicycles />} />
 
           <Route path='/returnRequests' element={<AllReturnRequests />} />
+          <Route path='/users' element={<UsersList />} />
 
         </Routes>
  

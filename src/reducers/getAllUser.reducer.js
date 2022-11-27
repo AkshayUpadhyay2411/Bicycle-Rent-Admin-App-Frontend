@@ -1,29 +1,29 @@
-import { allBicycleConstants } from "../actions/constants"
+import { allUserConstants } from "../actions/constants"
  
 const initState = {
     error: null,
-    allBicycles: [],
+    allUsers: [],
     loading: false 
-} 
-
+}
+ 
 export default (state = initState, action) => {
-    switch(action.type){
-        case allBicycleConstants.ALL_BICYCLE_REQUEST:
+    switch(action.type) {
+        case allUserConstants.ALL_USER_REQUEST:
             state = {
                 ...state,
                 loading : true
             }
             break;
 
-        case allBicycleConstants.ALL_BICYCLE_SUCCESS:
+        case allUserConstants.ALL_USER_SUCCESS:
             state = {
                 ...state,
-                allBicycles: action.payload.allBicycles,
+                allUsers: action.payload.allUsers,
                 loading : false
             }
             break;
 
-        case allBicycleConstants.ALL_BICYCLE_FAILURE:
+        case allUserConstants.ALL_USER_FAILURE:
             state = {
                 ...state,
                 loading : false,

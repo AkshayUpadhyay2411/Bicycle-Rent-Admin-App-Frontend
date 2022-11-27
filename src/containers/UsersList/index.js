@@ -2,48 +2,48 @@
 import React, { useEffect } from 'react' 
 import { Card, Col, Container, Row, Button, Form } from 'react-bootstrap'
 import { useDispatch, useSelector } from 'react-redux';
-import { getAllBicycles , bicycleRequested } from '../../actions';
+import { getAllUsers } from '../../actions';
 import Layout from '../../components/Layout' 
 
 import axios from "../../helpers/axios"; 
 
-export default function Bicycles() {
+export default function Users() {
  
-  const allTheBicycle = useSelector(state => state.allBicycle);
+  const allTheUser = useSelector(state => state.allUser);
 
   const dispatch = useDispatch();
 
   useEffect(() => {
-    dispatch(getAllBicycles());
+    dispatch(getAllUsers());
   }, []);
 
-  const renderBicycle = () => {
+  const renderUsers = () => {
 
-    let c = allTheBicycle.allBicycles.bicycles;
+    let c = allTheUser.allUsers.users;
 
     console.log(c.length); // array of elements
   }
 
-  const deleteBicycle = async (bicycleInfro) => {
+  const deleteUser = async (userInfro) => {
 
-    const res = await axios.post('/deleteBicycle' , {
-      ...bicycleInfro
+    const res = await axios.post('/deleteUser' , {
+      ...userInfro
     });
     
         
         if (res.status === 200) {
-            console.log("Bicycle Deleted !!");
+            console.log("User Deleted !!");
         } 
         else {
-          console.log("Falied to Delete Bicycle. Try again later !!");
+          console.log("Falied to Delete User. Try again later !!");
         }
   }
 
   return (
     
-    !allTheBicycle.allBicycles.bicycles ?
+    !allTheUser.allUsers.users ?
       <Layout>
-        <h1>No Bicycles Added Yet !!</h1>
+        <h1>No Users Yet !!</h1>
       </Layout>
 
       :
@@ -60,76 +60,44 @@ export default function Bicycles() {
 
               {/* {renderPost()} */}
 
-              <h1> Bicyles List </h1>
+              <h1> Users List </h1>
               <br />
-
-              {allTheBicycle.allBicycles.bicycles.map((bicycle) => (
+ 
+              {allTheUser.allUsers.users.map((user) => (
                     
                     <Card style={{ width: '35rem', margin: '10px' }}>
                     <Card.Body>
-                      <Card.Title> Id : {bicycle._id} </Card.Title>
+                      <Card.Title> Id : {user._id} </Card.Title>
                       
                       <Card.Text> 
-                        Name : {bicycle.name}
+                        firstName : {user.firstName}
+                      </Card.Text>
+
+                      <Card.Text> 
+                        lastName : {user.lastName}
                       </Card.Text>
 
                       <Card.Text>
-                        Description : {bicycle.description}
+                        email : {user.email}
                       </Card.Text>
-
-                      <Card.Text>
-                      pricePerHour : {bicycle.pricePerHour}
-                      </Card.Text>
-
-                      
-                      <Card.Text>
-                        Creator : {bicycle.creator}
-                      </Card.Text>
-
-                      <Card.Text>
-                        Availability : {bicycle.isAvailable ? <span>Available</span> : <span>Not Available</span>}
-                      </Card.Text>
-
-                      {/* Also correct  */}
-{/* 
-                      <Card.Text>
-                        Availability : {bicycle.isAvailable ? "Available" : "Not Available"}
-                      </Card.Text> */}
-
-                      <Card.Text>
-                        { bicycle.isTaken ? "Taken by : " + bicycle.takenBy : ''  }
-                      </Card.Text>
-                      
-                      <Card.Text>
-                        { bicycle.isTaken ? "Taken at : " + bicycle.takenAt.toString() : ''  }
-                      </Card.Text>
-                      
-
-                      <Card.Text>
-                        { bicycle.isAvailable ?  bicycle.isRequested ? `Is Bicycle Requested : Requested` : `Is Bicycle Requested : Not Requested` : ''}      
-                      </Card.Text>
-
-                      <Card.Text>
-                        { bicycle.isAvailable ?  bicycle.isRequested ? 'User Requesting : ' + bicycle.requestedBy : '' : ''}      
-                      </Card.Text>
-
 
 
                       <Button onClick={(e) => {
                           
                           e.preventDefault();
 
-                          const bicycleInfro = {
-                            bicycleId : bicycle._id
+                          const userInfro = {
+                            userId : user._id
                           }
 
                           // dispatch(bicycleRequested(bicycleInfro));
 
-                          deleteBicycle( bicycleInfro );
+                          deleteUser( userInfro );
 
                       }}
-                       variant="primary">Delete Bicycle</Button>
+                       variant="primary">Delete User</Button>
                     </Card.Body>
+                    
                   </Card>
                 ))}
               

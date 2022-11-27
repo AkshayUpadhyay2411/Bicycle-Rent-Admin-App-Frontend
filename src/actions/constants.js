@@ -102,3 +102,10 @@ export const declineReturnRequestConstants = {
     DECLINE_RETURN_REQUEST_FAILURE : 'DECLINE_RETURN_REQUEST_FAILURE'
 }
 
+
+export const allUserConstants = {
+    ALL_USER_REQUEST : 'ALL_USER_REQUEST',
+    ALL_USER_SUCCESS : 'ALL_USER_SUCCESS',
+    ALL_USER_FAILURE : 'ALL_USER_FAILURE'
+}
+

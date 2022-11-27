@@ -6,7 +6,7 @@ import { getAllRequests , requestAccepted , requestDeclined} from '../../actions
 import Layout from '../../components/Layout' 
  
 export default function AllRequests() {
- 
+  
   const allTheRequest = useSelector(state => state.allRequest);
 
   const dispatch = useDispatch();
@@ -26,7 +26,10 @@ export default function AllRequests() {
   return (
 
     !allTheRequest.allRequests.requests ?
-      <h1>Add Requests !!</h1>
+      <Layout>
+        <h1>No Requests Yet !!</h1>
+      </Layout>
+
       :
       (
         
@@ -37,29 +40,30 @@ export default function AllRequests() {
           <Row style={{ marginTop: '80px' }}>
 
             <Col md={{ span: 6, offset: 3 }}>
-
+              <h1>Bicycle Requests </h1>
+              <br/>
               {/* {renderPost()} */}
 
               {allTheRequest.allRequests.requests.map((request) => (
                     
                     <Card style={{ width: '35rem', margin: '10px' }}>
                     <Card.Body>
-                      {/* <Card.Title> {request.userRequested} </Card.Title> */}
+                      <Card.Title> Request Id : {request._id} </Card.Title>
                       <Card.Text>
-                        {request.userRequested}
+                        Person Requesting : {request.userRequested}
                       </Card.Text>
 
                       <Card.Text>
-                        {request.bicycleRequested.name}
+                        Bicycle Requesting : {request.bicycleRequested}
                       </Card.Text>
 
                       <Card.Text>
-                        {request.requestedBy}
+                      Person Id Requesting : {request.requestedBy}
                       </Card.Text>
 
                       
                       <Card.Text>
-                        {request.requestedBicycle}
+                        Bicycle Id Requesting : {request.requestedBicycle}
                       </Card.Text>
                       
 
@@ -90,8 +94,9 @@ export default function AllRequests() {
 
                       }}
                        
-                       variant="primary">Accept</Button>
+                       variant="primary">Accept Request</Button>
 
+                       <span>  </span>
                        <Button onClick={(e) => {
                           
                           e.preventDefault();
@@ -106,12 +111,12 @@ export default function AllRequests() {
 
                       }}
                        
-                       variant="primary">Decline</Button>
+                       variant="primary">Decline Request </Button>
 
                     </Card.Body>
                   </Card>
                 ))}
-
+{/* 
               <h1>GAP</h1>
               <Card style={{ width: '35rem', margin: '10px' }}>
                 <Card.Body>
@@ -135,7 +140,7 @@ export default function AllRequests() {
                   <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
               </Card>
-
+ */}
 
             </Col>
           </Row>

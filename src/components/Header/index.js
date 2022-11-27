@@ -61,21 +61,27 @@ export default function Header(props) {
                     <Link to='/createPost' className='navbar-brand' > Create-Post </Link>
                 </li> */}
 
-                <li>
-                    <Link to='/bicycles' className='navbar-brand' > Bicycles </Link>
-                </li>
                 
                 <li>
                     <Link to='/createBicycle' className='navbar-brand' > Create-Bicycle </Link>
                 </li>
 
                 <li>
+                    <Link to='/bicycles' className='navbar-brand' > Bicycles </Link>
+                </li>
+                
+                <li>
+                    <Link to='/users' className='navbar-brand' > Users </Link>
+                </li>
+                
+
+                <li>
                     <Link to='/requests' className='navbar-brand' > All-Requests </Link>
                 </li>
 
-                <li>
+                {/* <li>
                     <Link to='/myBicycles' className='navbar-brand' > My-Bicycles </Link>
-                </li>
+                </li> */}
 
                 
                 <li>

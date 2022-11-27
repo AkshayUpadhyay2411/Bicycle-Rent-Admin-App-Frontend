@@ -26,7 +26,9 @@ export default function AllReturnRequests() {
   return (
 
     !allTheReturnRequest.allReturnRequests.returnRequests ?
+    <Layout>
       <h1>Add Return Requests !!</h1>
+      </Layout>
       :
       (
         
@@ -37,29 +39,32 @@ export default function AllReturnRequests() {
           <Row style={{ marginTop: '80px' }}>
 
             <Col md={{ span: 6, offset: 3 }}>
+          
+            <h1>Bicycle Return Requests</h1>
 
               {/* {renderPost()} */}
 
               {allTheReturnRequest.allReturnRequests.returnRequests.map((returnRequest) => (
                     
+
                     <Card style={{ width: '35rem', margin: '10px' }}>
                     <Card.Body>
-                      {/* <Card.Title> {request.userRequested} </Card.Title> */}
+                      <Card.Title> Return Request Id : {returnRequest._id} </Card.Title>
                       <Card.Text>
-                        {returnRequest.userRequested}
+                        User Requesting : {returnRequest.userRequested}
                       </Card.Text>
 
                       <Card.Text>
-                        {returnRequest.bicycleRequested.name}
+                        Bicycle Return Request : {returnRequest.bicycleRequested}
                       </Card.Text>
 
                       <Card.Text>
-                        {returnRequest.requestedBy}
+                        User Id Requesting : {returnRequest.requestedBy}
                       </Card.Text>
 
                       
                       <Card.Text>
-                        {returnRequest.requestedBicycle}
+                        Bicycle Id Requested For : {returnRequest.requestedBicycle}
                       </Card.Text>
                       
 
@@ -90,8 +95,9 @@ export default function AllReturnRequests() {
 
                       }}
                        
-                       variant="primary">Accept</Button>
-
+                       variant="primary">Accept Request</Button>
+                        
+                        <span>  </span>
                        <Button onClick={(e) => {
                           
                           e.preventDefault();
@@ -104,15 +110,16 @@ export default function AllReturnRequests() {
 
                           dispatch(returnRequestDeclined(requestIdObj));
 
+
                       }}
                        
-                       variant="primary">Decline</Button>
+                       variant="primary">Decline Request</Button>
 
                     </Card.Body>
                   </Card>
                 ))}
 
-              <h1>GAP</h1>
+              {/* <h1>GAP</h1>
               <Card style={{ width: '35rem', margin: '10px' }}>
                 <Card.Body>
                   <Card.Title>Card Title</Card.Title>
@@ -135,7 +142,7 @@ export default function AllReturnRequests() {
                   <Button variant="primary">Go somewhere</Button>
                 </Card.Body>
               </Card>
-
+ */}
 
             </Col>
           </Row>

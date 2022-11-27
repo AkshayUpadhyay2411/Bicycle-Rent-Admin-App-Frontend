@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react'
+import {useNavigate } from 'react-router-dom';
 import Layout from '../../components/Layout'
 import { Container, Form, Button, Row, Col } from 'react-bootstrap'
 import Input from '../../components/UI/input'
@@ -18,6 +19,7 @@ export default function Signin() {
 
     const dispatch = useDispatch();
 
+    
 
     // useEffect( () => {
         
@@ -26,7 +28,12 @@ export default function Signin() {
     //     }
 
     // } , [] );
- 
+    
+    const navigate = useNavigate();
+
+    const navigateHome = () => {
+        navigate('/');
+    };
 
     const userLogin = (e) => { // e --> event 
 
@@ -41,6 +48,10 @@ export default function Signin() {
 
         dispatch(login(user));
 
+        setEmail('');
+        setPassword('');
+
+        navigateHome();
     }
 
     // OLD 

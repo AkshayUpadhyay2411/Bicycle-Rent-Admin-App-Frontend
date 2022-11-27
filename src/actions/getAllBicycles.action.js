@@ -4,7 +4,7 @@ import { allBicycleConstants } from "./constants";
 export const getAllBicycles = () => { 
 
     return async (dispatch) => {
-
+        
         dispatch ({
             type : allBicycleConstants.ALL_BICYCLE_REQUEST
         });
