@@ -27,7 +27,11 @@ export default function MyBicycles() {
   return (
     
     !allTheMyBicycle.allMyBicycles.myBicyles ?
-      <h1>Add your bicycles !!</h1>
+      
+      <Layout>
+        <h1>Add your bicycles !!</h1>
+      </Layout>
+
       :
       (
         
@@ -38,7 +42,7 @@ export default function MyBicycles() {
           <Row style={{ marginTop: '80px' }}>
 
             <Col md={{ span: 6, offset: 3 }}>
-
+              <h1> Bicycles rented  </h1>
               {/* {renderPost()} */}
 
               {allTheMyBicycle.allMyBicycles.myBicyles.map((bicycle) => (

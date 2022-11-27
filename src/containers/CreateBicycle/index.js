@@ -40,7 +40,6 @@ export default function CreateBicycle() {
     }
 
     
-
     return (
         <div>
             <Layout>
